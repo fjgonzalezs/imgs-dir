@@ -16,12 +16,12 @@ use Illuminate\Filesystem\Filesystem;
 |
 */
 	
-Route::get('/', function () {
+/*Route::get('/', function () {
 	$fotos = Foto::all();
 	return view('index',['fotos' => $fotos]);
 
 });
-
+*/
 Route::group(['middleware' => 'guest'], function () {
   Route::resource('login','loginController', ['names' => [
     'index' => 'login'
@@ -47,7 +47,7 @@ Route::get('carpetas/todas',function(){ //ordenar las rutas
 })->middleware('auth');
 
 Route::group(['middleware' => 'auth'], function () {
-	Route::get('/asd', function () {
+	Route::get('/', function () {
 	return view('carpetas');
 });
 
